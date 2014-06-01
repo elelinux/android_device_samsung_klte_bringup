@@ -230,8 +230,8 @@ PRODUCT_COPY_FILES += \
    device/samsung/klte/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
    device/samsung/klte/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
 
-# call common msm8960
-$(call inherit-product, device/samsung/msm8960-common/msm8960.mk)
+# call common msm8974
+$(call inherit-product, device/samsung/msm8974-common/msm8974.mk)
 
 # call dalvik heap config
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)

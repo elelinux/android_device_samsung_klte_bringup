@@ -20,8 +20,8 @@
 # definition file).
 #
 
-# inherit from common msm8960
--include device/samsung/msm8960-common/BoardConfigCommon.mk
+# inherit from common msm8974
+-include device/samsung/msm8974-common/BoardConfigCommon.mk
 
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/klte/include
 
