@@ -105,6 +105,9 @@ MAX_EGL_CACHE_KEY_SIZE := 12*1024
 # of the device.
 MAX_EGL_CACHE_SIZE := 2048*1024
 
+# Vibrator
+BOARD_HAS_VIBRATOR_IMPLEMENTATION := ../../device/samsung/klte/vibrator/tspdrv.c
+
 # PowerHAL
 TARGET_POWERHAL_VARIANT := qcom
 #TARGET_POWERHAL_SET_INTERACTIVE_EXT := device/samsung/klte/power/power_ext.c
