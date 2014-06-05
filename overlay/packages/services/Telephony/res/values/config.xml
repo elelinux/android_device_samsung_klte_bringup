@@ -14,7 +14,8 @@
      limitations under the License.
 -->
 
-<!-- shooteru-specific phone app resources. -->
+<!-- Phone app resources that may need to be customized
+     for different hardware or product builds. -->
 <resources>
 
     <!-- Determine whether calls to mute the microphone in PhoneUtils

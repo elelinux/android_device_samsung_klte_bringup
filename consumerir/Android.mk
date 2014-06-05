@@ -1,4 +1,4 @@
-# Copyright (C) 2010 The Android Open Source Project
+# Copyright (C) 2013 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,12 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Key layout used for Bluetooth AVRCP support.
+# HAL module implementation stored in
+# hw/<POWERS_HARDWARE_MODULE_ID>.<ro.hardware>.so
 
-key 200   MEDIA_PLAY          WAKE
-key 201   MEDIA_PAUSE         WAKE
-key 166   MEDIA_STOP          WAKE
-key 163   MEDIA_NEXT          WAKE
-key 165   MEDIA_PREVIOUS      WAKE
-key 168   MEDIA_REWIND        WAKE
-key 208   MEDIA_FAST_FORWARD  WAKE
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := consumerir.msm8974
+LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
+LOCAL_SRC_FILES := consumerir.c
+LOCAL_SHARED_LIBRARIES := liblog libcutils
+LOCAL_MODULE_TAGS := optional
+
+include $(BUILD_SHARED_LIBRARY)

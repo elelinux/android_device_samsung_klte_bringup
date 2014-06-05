@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2011 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -72,13 +72,13 @@ PRODUCT_COPY_FILES += \
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-    device/samsung/klte-common/keylayout/atmel_mxt_ts.kl:system/usr/keylayout/atmel_mxt_ts.kl \
-    device/samsung/klte-common/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-    device/samsung/klte-common/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    device/samsung/klte-common/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
-    device/samsung/klte-common/keylayout/sec_navigation.kl:system/usr/keylayout/sec_navigation.kl \
-    device/samsung/klte-common/keylayout/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl \
-    device/samsung/klte-common/keylayout/synaptics_rmi4_i2c.kl:system/usr/keylayout/synaptics_rmi4_i2c.kl
+    device/samsung/klte/keylayout/atmel_mxt_ts.kl:system/usr/keylayout/atmel_mxt_ts.kl \
+    device/samsung/klte/keylayout/Button_Jack.kl:system/usr/keylayout/Button_Jack.kl \
+    device/samsung/klte/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    device/samsung/klte/keylayout/philips_remote_ir.kl:system/usr/keylayout/philips_remote_ir.kl \
+    device/samsung/klte/keylayout/samsung_remote_ir.kl:system/usr/keylayout/samsung_remote_ir.kl \
+    device/samsung/klte/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl \
+    device/samsung/klte/keylayout/ue_rf4ce_remote.kl:system/usr/keylayout/ue_rf4ce_remote.kl
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -97,9 +97,24 @@ PRODUCT_PACKAGES += \
     init.crda.sh \
     init.sec.boot.sh
 
+# HAL
+PRODUCT_PACKAGES += \
+    copybit.msm8974 \
+    gralloc.msm8974 \
+    hwcomposer.msm8974 \
+    memtrack.msm8974 \
+    power.msm8974 \
+    camera.msm8974
+
 # Audio
 PRODUCT_PACKAGES += \
     audiod \
+    audio.a2dp.default \
+    audio_policy.msm8974 \
+    audio.primary.msm8974 \
+    audio.r_submix.default \
+    audio.usb.default \
+    libaudio-resampler \
     libqcomvisualizer \
     libqcomvoiceprocessing \
     tinymix
@@ -160,15 +175,6 @@ endif
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 
-# Sensors
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
-    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
-    frameworks/native/data/etc/android.hardware.sensor.barometer.xml:system/etc/permissions/android.hardware.sensor.barometer.xml \
-    frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:system/etc/permissions/android.hardware.sensor.stepdetector.xml \
-    frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:system/etc/permissions/android.hardware.sensor.stepcounter.xml
-
 # Lights
 PRODUCT_PACKAGES += lights.MSM8974
 
@@ -212,11 +218,11 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_COPY_FILES += \
-   device/samsung/klte/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-   device/samsung/klte/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
+   device/samsung/klte/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+   device/samsung/klte/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
 
-# call common msm8974
-$(call inherit-product, device/samsung/msm8974-common/msm8974.mk)
+# call common msm8960
+$(call inherit-product, device/samsung/msm8960-common/msm8960.mk)
 
 # call dalvik heap config
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)

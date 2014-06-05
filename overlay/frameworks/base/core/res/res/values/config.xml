@@ -44,13 +44,10 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>10</item>
-        <item>30</item>
-        <item>60</item>
-        <item>100</item>
+        <item>15</item>
         <item>150</item>
-        <item>210</item>
-        <item>255</item>
+        <item>1000</item>
+        <item>5000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -58,13 +55,10 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>10</item>
         <item>20</item>
-        <item>40</item>
-        <item>70</item>
-        <item>110</item>
-        <item>160</item>
-        <item>200</item>
+        <item>80</item>
+        <item>130</item>
+        <item>190</item>
         <item>255</item>
     </integer-array>
 
@@ -73,8 +67,8 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessButtonBacklightValues">
-        <item>255</item>
-        <item>255</item>
+        <item>1</item>
+        <item>1</item>
         <item>0</item>
         <item>0</item>
         <item>0</item>
@@ -108,7 +102,7 @@
         <item>"mobile_supl,3,0,2,60000,true"</item>
         <item>"mobile_dun,4,0,2,60000,true"</item>
         <item>"mobile_hipri,5,0,3,60000,true"</item>
-        <item>"bluetooth,7,7,0,-1,true"</item>
+        <item>"mobile_bluetooth,7,7,2,-1,true"</item>
         <item>"wifi_p2p,13,1,0,-1,true"</item>
     </string-array>
 
@@ -139,7 +133,6 @@
          bluetooth interfaces.  If the device doesn't want to support tethering over bluetooth this
          should be empty. -->
     <string-array translatable="false" name="config_tether_bluetooth_regexs">
-        <item>bnep\\d</item>
         <item>"bt-pan"</item>
     </string-array>
 
@@ -149,7 +142,6 @@
     <integer-array translatable="false" name="config_tether_upstream_types">
         <item>0</item>
         <item>1</item>
-        <item>4</item>
         <item>5</item>
         <item>7</item>
     </integer-array>
@@ -245,7 +237,7 @@
             16 - App switch
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareKeys">4</integer>
+    <integer name="config_deviceHardwareKeys">19</integer>
 
     <bool name="config_enableWifiDisplay">true</bool>
 
@@ -262,9 +254,6 @@
     <!-- Enable translucent UI -->
     <bool name="config_enableLockScreenTranslucentDecor">true</bool>
     <bool name="config_enableTranslucentDecor">true</bool>
-
-    <!-- Boolean to enable stylus gestures -->
-    <bool name="config_stylusGestures">true</bool>
 
     <!-- Performance profiles -->
     <string name="config_perf_profile_prop">sys.perf.profile</string>

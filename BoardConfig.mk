@@ -1,4 +1,4 @@
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2009 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,16 +20,18 @@
 # definition file).
 #
 
-# inherit from common msm8974
--include device/samsung/msm8974-common/BoardConfigCommon.mk
+# inherit from common msm8960
+-include device/samsung/msm8960-common/BoardConfigCommon.mk
 
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/klte/include
 
-# Bootloader
+# overrides  msm8960
+TARGET_BOARD_PLATFORM := msm8974
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno330
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 
 # Kernel Configs
-TARGET_KERNEL_SOURCE := kernel/samsung/klte-common
+TARGET_KERNEL_SOURCE := kernel/samsung/klte
 TARGET_KERNEL_CONFIG := msm8974_sec_defconfig
 TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
 TARGET_KERNEL_VARIANT_CONFIG := msm8974pro_sec_klte_spr_defconfig
@@ -75,14 +77,25 @@ BOARD_NFC_HAL_SUFFIX := msm8974
 BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
 
 # QCOM support
-TARGET_USES_ION := true
-TARGET_USES_C2D_COMPOSITION := true
+BOARD_USES_QCOM_HARDWARE := true
+TARGET_QCOM_MEDIA_VARIANT := caf-new
+TARGET_QCOM_DISPLAY_VARIANT := caf-new
+BOARD_USES_LEGACY_ALSA_AUDIO := 
+TARGET_QCOM_AUDIO_VARIANT := caf
+TARGET_USES_QCOM_BSP := true
 
 # Audio settings
 BOARD_USES_CUSTOM_AUDIO_PLATFORM_PATH := device/samsung/klte/audio/platform
 AUDIO_FEATURE_DISABLED_MULTI_VOICE_SESSIONS := true
 AUDIO_FEATURE_DISABLED_FM := true
 AUDIO_FEATURE_DISABLED_ANC_HEADSET := true
+
+WIFI_DRIVER_FW_PATH_P2P     := 
+
+# Don't use qcom camera HAL
+#USE_DEVICE_SPECIFIC_CAMERA := true
+TARGET_PROVIDES_CAMERA_HAL_MSM8974 := true
+TARGET_PROVIDES_CAMERA_HAL := 
 
 # Build lights 
 TARGET_PROVIDES_LIBLIGHT := true
@@ -105,25 +118,22 @@ MAX_EGL_CACHE_KEY_SIZE := 12*1024
 # of the device.
 MAX_EGL_CACHE_SIZE := 2048*1024
 
-# Vibrator
-BOARD_HAS_VIBRATOR_IMPLEMENTATION := ../../device/samsung/klte/vibrator/tspdrv.c
+# Assert
+TARGET_OTA_ASSERT_DEVICE := kltexx,kltespr,kltetmo,kltecan,klteatt,kltevzw,klte
 
 # PowerHAL
 TARGET_POWERHAL_VARIANT := qcom
-#TARGET_POWERHAL_SET_INTERACTIVE_EXT := device/samsung/klte/power/power_ext.c
+TARGET_POWERHAL_SET_INTERACTIVE_EXT := device/samsung/klte/power/power_ext.c
 
-# Consumerir
-TARGET_PROVIDES_CONSUMERIR_HAL := true
+# The "new" GPS is really the old GPS, override it.
+BOARD_HAVE_NEW_QC_GPS :=
 
 # We don't use old-ass RPC
 TARGET_NO_RPC := true
 
-# Assert
-TARGET_OTA_ASSERT_DEVICE := kltexx,kltecan,kltespr,kltetmo,klte,SM-G900F,SM-G900W8,SM-G900P,SM-G900T
-
 # Vendor Init
 TARGET_UNIFIED_DEVICE := true
-TARGET_INIT_VENDOR_LIB := libinit_klte
-TARGET_LIBINIT_DEFINES_FILE := device/samsung/klte-common/init/init_klte.c
+TARGET_INIT_VENDOR_LIB := libinit_msm
+TARGET_LIBINIT_DEFINES_FILE := device/samsung/klte/init/init_klte.c
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/klte
