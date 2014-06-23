@@ -1,4 +1,4 @@
-# Copyright (C) 2009 The CyanogenMod Project
+# Copyright (C) 2014 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 TARGET_KERNEL_SOURCE := kernel/samsung/klte
 TARGET_KERNEL_CONFIG := msm8974_sec_defconfig
 TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
-TARGET_KERNEL_VARIANT_CONFIG := msm8974pro_sec_klte_spr_defconfig
+TARGET_KERNEL_VARIANT_CONFIG := msm8974pro_sec_klte_eur_defconfig
 # Kernel
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
 BOARD_KERNEL_BASE := 0x00000000
@@ -60,13 +60,15 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 13631488
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1572864000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 28651290624
 BOARD_FLASH_BLOCK_SIZE := 131072
-
 BOARD_RECOVERY_SWIPE := true
 
 # bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/klte/bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := device/samsung/klte/bluetooth/vnd_klte.txt
 BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
+
+# Needed for blobs
+COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 
 # NFC
 BOARD_NFC_HAL_SUFFIX := msm8974
