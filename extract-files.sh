@@ -1,7 +1,6 @@
 #!/bin/bash
 
-set -e
-
+#set -e
 export DEVICE=klte
 export VENDOR=samsung
 
@@ -22,13 +21,12 @@ else
 fi
 
 BASE=../../../vendor/$VENDOR/$DEVICE/proprietary
-
 rm -rf $BASE/*
 
-for FILE in `egrep -v '(^#|^$)' ../$DEVICE/proprietary-files.txt`; do
+for FILE in `egrep -v '(^#|^$)' proprietary-files.txt`; do
   echo "Extracting /system/$FILE ..."
   OLDIFS=$IFS IFS=":" PARSING_ARRAY=($FILE) IFS=$OLDIFS
-  FILE=${PARSING_ARRAY[0]}
+  FILE=`echo ${PARSING_ARRAY[0]} | sed -e "s/^-//g"`
   DEST=${PARSING_ARRAY[1]}
   if [ -z $DEST ]
   then

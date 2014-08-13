@@ -1,4 +1,4 @@
-/* Copyright (c) 2013, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2013-2014, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -35,7 +35,7 @@ extern "C" {
 
 #include <ctype.h>
 #include <stdbool.h>
-#include "hardware/gps.h"
+#include <hardware/gps.h>
 
 /** Location has valid source information. */
 #define LOCATION_HAS_SOURCE_INFO   0x0020
@@ -55,12 +55,16 @@ extern "C" {
 /** Position source is ULP */
 #define ULP_LOCATION_IS_FROM_HYBRID   0x0001
 /** Position source is GNSS only */
-#define ULP_LOCATION_IS_FROM_GNSS   0x0002
+#define ULP_LOCATION_IS_FROM_GNSS     0x0002
 /** Position source is ZPP only */
-#define ULP_LOCATION_IS_FROM_ZPP 0x0004
+#define ULP_LOCATION_IS_FROM_ZPP      0x0004
+/** Position is from a Geofence Breach Event */
+#define ULP_LOCATION_IS_FROM_GEOFENCE 0X0008
 
 #define ULP_MIN_INTERVAL_INVALID 0xffffffff
 
+/*Emergency SUPL*/
+#define GPS_NI_TYPE_EMERGENCY_SUPL    4
 
 typedef struct {
     /** set to sizeof(UlpLocation) */
