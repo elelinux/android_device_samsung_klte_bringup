@@ -1057,7 +1057,7 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
 service gsiff_daemon /system/bin/gsiff_daemon
     class late_start
     user system
-    group gps qcom_oncrpc net_raw
+    group gps qcom_oncrpc net_raw misc
 
 service qrngd /system/bin/qrngd -f
     class main
