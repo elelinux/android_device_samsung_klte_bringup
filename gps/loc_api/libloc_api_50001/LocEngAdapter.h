@@ -30,7 +30,7 @@
 #define LOC_API_ENG_ADAPTER_H
 
 #include <ctype.h>
-#include <hardware/gps.h>
+#include "hardware/gps.h"
 #include <loc.h>
 #include <loc_eng_log.h>
 #include <log_util.h>
@@ -76,8 +76,8 @@ class LocEngAdapter : public LocAdapterBase {
     bool mNavigating;
 
 public:
-    bool mSupportsAgpsRequests;
-    bool mSupportsPositionInjection;
+    bool mAgpsEnabled;
+    bool mCPIEnabled;
 
     LocEngAdapter(LOC_API_ADAPTER_EVENT_MASK_T mask,
                   void* owner,ContextBase* context,
@@ -91,8 +91,8 @@ public:
     inline LocInternalAdapter* getInternalAdapter() { return mInternalAdapter; }
     inline UlpProxyBase* getUlpProxy() { return mUlp; }
     inline void* getOwner() { return mOwner; }
-    inline bool hasAgpsExtendedCapabilities() { return mContext->hasAgpsExtendedCapabilities(); }
-    inline bool hasCPIExtendedCapabilities() { return mContext->hasCPIExtendedCapabilities(); }
+    inline bool hasAgpsExt() { return mContext->hasAgpsExt(); }
+    inline bool hasCPIExt() { return mContext->hasCPIExt(); }
     inline const MsgTask* getMsgTask() { return mMsgTask; }
 
     inline enum loc_api_adapter_err
@@ -185,9 +185,9 @@ public:
         return mLocApi->setLPPConfig(profile);
     }
     inline enum loc_api_adapter_err
-        setSensorControlConfig(int sensorUsage, int sensorProvider)
+        setSensorControlConfig(int sensorUsage)
     {
-        return mLocApi->setSensorControlConfig(sensorUsage, sensorProvider);
+        return mLocApi->setSensorControlConfig(sensorUsage);
     }
     inline enum loc_api_adapter_err
         setSensorProperties(bool gyroBiasVarianceRandomWalk_valid, float gyroBiasVarianceRandomWalk,

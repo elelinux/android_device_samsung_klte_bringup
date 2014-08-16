@@ -32,3 +32,5 @@ def FullOTA_InstallEnd(info):
   info.script.AppendExtra('ifelse(is_substring("G900R7", getprop("ro.bootloader")), run_program("/sbin/sh", "-c", "busybox cp /system/lib/cdma/* /system/lib/"));')
   info.script.AppendExtra('delete_recursive("/system/lib/gsm/");')
   info.script.AppendExtra('delete_recursive("/system/lib/cdma/");')
+  info.script.AppendExtra('delete_recursive("/system/lib/hw/gsm/");')
+  info.script.AppendExtra('delete_recursive("/system/lib/hw/spr/");')

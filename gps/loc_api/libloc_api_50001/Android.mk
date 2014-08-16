@@ -41,7 +41,7 @@ LOCAL_CFLAGS += \
 LOCAL_C_INCLUDES:= \
     $(TARGET_OUT_HEADERS)/gps.utils \
     $(TARGET_OUT_HEADERS)/libloc_core \
-    device/samsung/klte/gps/libloc_api_50001
+    device/samsung/klte/gps/loc_api/libloc_api_50001
 
 LOCAL_COPY_HEADERS_TO:= libloc_eng/
 LOCAL_COPY_HEADERS:= \
@@ -74,7 +74,8 @@ LOCAL_SHARED_LIBRARIES := \
     libloc_eng \
     libloc_core \
     libgps.utils \
-    libdl
+    libdl \
+    libandroid_runtime
 
 LOCAL_SRC_FILES += \
     loc.cpp \
@@ -83,10 +84,6 @@ LOCAL_SRC_FILES += \
 LOCAL_CFLAGS += \
     -fno-short-enums \
     -D_ANDROID_ \
-
-ifeq ($(TARGET_USES_QCOM_BSP), true)
-LOCAL_CFLAGS += -DTARGET_USES_QCOM_BSP
-endif
 
 ## Includes
 LOCAL_C_INCLUDES:= \
