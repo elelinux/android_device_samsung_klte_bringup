@@ -9,3 +9,5 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 PRODUCT_DEVICE := klte
 PRODUCT_NAME := cm_klte
 PRODUCT_MANUFACTURER := Samsung
+
+PRODUCT_GMS_CLIENTID_BASE := android-samsung
