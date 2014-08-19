@@ -90,7 +90,6 @@ PRODUCT_PACKAGES += \
     libnfc-nci \
     libnfc_nci_jni \
     NfcNci \
-    nfc_nci.msm8974 \
     Tag \
     com.android.nfc_extras
 
