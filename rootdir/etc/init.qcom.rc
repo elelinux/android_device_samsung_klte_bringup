@@ -1012,7 +1012,6 @@ on boot
     chown system system /sys/class/input/input1/enabled
     chown radio system /sys/class/sec/sec_touchkey/touch_sensitivity
     chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_update
-    chown system radio /sys/class/sec/tsp/cmd
     chown system radio /sys/class/sec/sec_touchkey/glove_mode
     chown system radio /sys/class/sec/sec_touchkey/flip_mode
     chown system radio /sys/class/sec/sec_touchkey/boost_level
