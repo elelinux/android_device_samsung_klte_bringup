@@ -62,6 +62,9 @@ TARGET_INIT_VENDOR_LIB := libinit_msm
 TARGET_LIBINIT_DEFINES_FILE := device/samsung/klte/init/init_klte.c
 TARGET_UNIFIED_DEVICE := true
 
+# Camera
+COMMON_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_HARDWARE
+
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
