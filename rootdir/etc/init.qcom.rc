@@ -134,6 +134,13 @@ on post-fs-data
     chmod 666 /sys/class/leds/torch-sec1/brightness
     chown system camera /sys/class/leds/torch-sec1/brightness
 
+    chown system system /sys/class/sec/sec_touchkey/keypad_enable
+    chmod 0660 /sys/class/sec/sec_touchkey/keypad_enable
+
+    # Color Calibration
+    chown root system /sys/class/misc/gammacontrol/tuner
+    chmod 0664 /sys/class/misc/gammacontrol/tuner
+
     # we will remap this as /mnt/sdcard with the sdcard fuse tool
     mkdir /data/media 0775 media_rw media_rw
     chown media_rw media_rw /data/media
