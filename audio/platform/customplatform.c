@@ -65,21 +65,21 @@ snd_device_t custom_platform_get_input_snd_device(void *platform, audio_devices_
     return snd_device;
 }
 void custom_init_data(){
-    change_acdb_data(SND_DEVICE_OUT_SPEAKER, 14);
-    change_acdb_data(SND_DEVICE_OUT_SPEAKER_REVERSE, 14);
-    change_acdb_data(SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES, 10);
-    change_acdb_data(SND_DEVICE_OUT_VOICE_SPEAKER, 14);
-    change_acdb_data(SND_DEVICE_IN_VOICE_DMIC, 41);
-    change_acdb_data(SND_DEVICE_IN_HANDSET_DMIC, 41);
-    change_acdb_data(SND_DEVICE_IN_VOICE_SPEAKER_DMIC, 43);
-    change_acdb_data(SND_DEVICE_IN_SPEAKER_DMIC, 43);
-    change_acdb_data(SND_DEVICE_IN_VOICE_REC_MIC, 4);
-    change_acdb_data(SND_DEVICE_IN_CAMCORDER_MIC, 4);
-    change_acdb_data(SND_DEVICE_OUT_USB_HEADSET, 45);
-    change_acdb_data(SND_DEVICE_OUT_BT_SCO, 22);
-    change_acdb_data(SND_DEVICE_OUT_BT_SCO_WB, 39);
-    change_acdb_data(SND_DEVICE_IN_BT_SCO_MIC, 21);
-    change_acdb_data(SND_DEVICE_IN_BT_SCO_MIC_WB, 38);
+    change_acdb_data(SND_DEVICE_OUT_SPEAKER, 15);
+    change_acdb_data(SND_DEVICE_OUT_SPEAKER_REVERSE, 15);
+    change_acdb_data(SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES, 15);
+    change_acdb_data(SND_DEVICE_OUT_VOICE_SPEAKER, 15);
+    change_acdb_data(SND_DEVICE_IN_VOICE_DMIC, 4);
+    change_acdb_data(SND_DEVICE_IN_HANDSET_DMIC, 4);
+    change_acdb_data(SND_DEVICE_IN_VOICE_SPEAKER_DMIC, 11);
+    change_acdb_data(SND_DEVICE_IN_SPEAKER_DMIC, 11);
+    change_acdb_data(SND_DEVICE_IN_VOICE_REC_MIC, 53);
+    change_acdb_data(SND_DEVICE_IN_CAMCORDER_MIC, 56);
+    change_acdb_data(SND_DEVICE_OUT_USB_HEADSET, 98);
+    change_acdb_data(SND_DEVICE_OUT_BT_SCO, 48);
+    change_acdb_data(SND_DEVICE_OUT_BT_SCO_WB, 50);
+    change_acdb_data(SND_DEVICE_IN_BT_SCO_MIC, 49);
+    change_acdb_data(SND_DEVICE_IN_BT_SCO_MIC_WB, 51);
 
     change_table_data(SND_DEVICE_OUT_HEADPHONES, "headset");
     change_table_data(SND_DEVICE_OUT_VOICE_HANDSET, "voice-call-handset");
