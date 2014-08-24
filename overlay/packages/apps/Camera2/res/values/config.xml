@@ -20,19 +20,4 @@
 <resources>
     <!-- Use ZSL mode for Qualcomm cameras -->
     <bool name="enableZSL">true</bool>
-
-    <!-- Scene detection mode list -->
-    <string-array name="asdModes">
-        <item>normal</item>
-        <item>landscape</item>
-        <item>portrait</item>
-        <item>portrait</item> <!-- backlight -->
-        <item>landscape</item> <!-- backlight -->
-        <item>mix_illuminant</item> <!-- backlight -->
-        <item>night</item>
-        <item>macro</item>
-        <item>sports</item>
-        <item>mix_illuminant</item>
-        <item>indoor</item>
-    </string-array>
 </resources>
