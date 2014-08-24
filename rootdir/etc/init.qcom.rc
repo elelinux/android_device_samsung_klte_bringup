@@ -715,6 +715,28 @@ on boot
     chown system system /sys/kernel/ipv4/tcp_rmem_max
     chown root radio /proc/cmdline
 
+    # Touchscreen misc
+    chown root system /proc/touchpanel/double_tap_enable
+    chmod 0660 /proc/touchpanel/double_tap_enable
+
+    chown root system /proc/touchpanel/camera_enable
+    chmod 0660 /proc/touchpanel/camera_enable
+
+    chown root system /proc/touchpanel/music_enable
+    chmod 0660 /proc/touchpanel/music_enable
+
+    chown root system /proc/touchpanel/flashlight_enable
+    chmod 0660 /proc/touchpanel/flashlight_enable
+
+    chown root system /proc/touchpanel/keypad_enable
+    chmod 0660 /proc/touchpanel/keypad_enable
+
+    chown system system /sys/devices/virtual/graphics/fb0/cabc
+    chmod 0660 /sys/devices/virtual/graphics/fb0/cabc
+
+    chown system graphics /sys/devices/virtual/graphics/fb0/panel_calibration
+    chmod 0660 /sys/devices/virtual/graphics/fb0/panel_calibration
+
     # Adjust YUV to RGB Conversion(CSC_Conversion)
     chown system media_rw /sys/class/graphics/fb0/csc_cfg
     chmod 0660 /sys/class/graphics/fb0/csc_cfg
@@ -1061,6 +1083,24 @@ on boot
 
 # Services begin here
 
+service at_distributor /system/bin/at_distributor
+    class late_start
+    user root
+    group radio log
+
+service surfaceflinger /system/bin/surfaceflinger
+    class main
+    user system
+    group graphics drmrpc
+    onrestart restart zygote
+    onrestart restart gsiff_daemon
+
+service sensors /system/bin/sensors.qcom
+    class late_start
+    user root
+    group root
+    disabled
+
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class main
     user camera
@@ -1075,6 +1115,24 @@ service gsiff_daemon /system/bin/gsiff_daemon
     class late_start
     user system
     group gps qcom_oncrpc net_raw misc
+
+service location_mq /system/bin/location-mq
+    class late_start
+    user gps
+    group gps
+    disabled
+
+service xtwifi_inet /system/bin/xtwifi-inet-agent
+    class late_start
+    user gps
+    group inet gps
+    disabled
+
+service xtwifi_client /system/bin/xtwifi-client
+    class late_start
+    user gps
+    group net_admin wifi inet gps
+    disabled
 
 service qrngd /system/bin/qrngd -f
     class main
@@ -1127,6 +1185,24 @@ service rmt_storage /system/bin/rmt_storage
     class core
     user root
 
+service port-bridge /system/bin/port-bridge /dev/smd0 /dev/ttyGS0
+    class late_start
+    user system
+    group system inet
+    disabled
+
+service bridgemgrd /system/bin/bridgemgrd
+    class late_start
+    user radio
+    group radio qcom_diag
+    disabled
+
+service qmiproxy /system/bin/qmiproxy
+    class main
+    user radio
+    group radio qcom_diag
+    disabled
+
 service qmuxd /system/bin/qmuxd
     class core
     user radio
@@ -1134,6 +1210,14 @@ service qmuxd /system/bin/qmuxd
 
 service netmgrd /system/bin/netmgrd
     class main
+
+service mtpd /system/bin/mtpd
+    class main
+    socket mtpd stream 600 system system
+    user vpn
+    group vpn net_admin inet net_raw
+    disabled
+    oneshot
 
 service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
@@ -1239,6 +1323,18 @@ on property:crypto.driver.load=1
 on property:crypto.driver.load=0
      exec /system/bin/rmmod qcedev.ko
      exec /system/bin/rmmod qce.ko
+
+service drmdiag /system/bin/drmdiagapp
+    class late_start
+     user root
+     disabled
+     oneshot
+
+on property:drmdiag.load=1
+    start drmdiag
+
+on property:drmdiag.load=0
+    stop drmdiag
 
 service wifi-crda /system/bin/sh /system/etc/init.crda.sh
    class late_start
