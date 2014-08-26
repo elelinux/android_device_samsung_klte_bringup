@@ -31,12 +31,12 @@ import java.io.SyncFailedException;
 
 public class Utils {
 
-    private static final String TAG = "OneSettings_Utils";
-    private static final String TAG_READ = "OneSettings_Utils_Read";
-    private static final String TAG_WRITE = "OneSettings_Utils_Write";
+    private static final String TAG = "KlteSettings_Utils";
+    private static final String TAG_READ = "KlteSettings_Utils_Read";
+    private static final String TAG_WRITE = "KlteSettings_Utils_Write";
 
     // Read value from sysfs interface
-    public static String readOneLine(String sFile) {
+    public static String readKlteLine(String sFile) {
         BufferedReader brBuffer;
         String sLine = null;
 
