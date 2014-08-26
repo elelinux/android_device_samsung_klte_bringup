@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 2014 Arnav Gupta, AOKP
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing, software
+  ~  distributed under the License is distributed on an "AS IS" BASIS,
+  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  -->
+
+<resources>
+    <string name="app_name">Pokročilá nastavení</string>
+    <string name="title_activity_one_settings">One nastavení</string>
+    <string name="defaults_button">Obnovit výchozí</string>
+    <string name="title_haptic">Hmatová odezva</string>
+    <string name="vibrator_title">Vibrace</string>
+    <string name="vibrator_tuning_title">Síla vibrací</string>
+    <string name="vibrator_tuning_summary_head">Upravit sílu vibrací pro zpětnou vazbu</string>
+    <string name="title_touchscreen">Dotyková obrazovka</string>
+    <string name="touchscreen_double_tap_gesture_title">Probudit zařízení</string>
+    <string name="touchscreen_double_tap_gesture_summary">Dvojitý dotyk probudí zařízení</string>
+    <string name="touchscreen_camera_gesture_title">Fotoaparát</string>
+    <string name="touchscreen_camera_gesture_summary">Načrtnutím kruhu bude spuštěn fotoaparát</string>
+    <string name="touchscreen_music_gesture_title">Hudba</string>
+    <string name="touchscreen_flashlight_gesture_title">Svítilna</string>
+    <string name="touchscreen_flashlight_gesture_summary">Načrtnutím písmene \'V\' dojde k přepnutí stavu svítilny</string>
+    <string name="touchscreen_music_gesture_summary">Použít gesta k ovládání přehrávání hudby\n
+        \u2022 Dvěma prsty svisle - přehrávat/pozastavit\n
+        \u2022 Načrtnutím šipky vlevo - předchozí stopa\n
+        \u2022 Načrtnutím šipky vpravo - následující stopa</string>
+    <string name="title_other">Ostatní</string>
+    <string name="fast_charge_title">Rychlé nabíjení</string>
+    <string name="fast_charge_summary">Umožnit zařízení rychlé nabíjení během připojení k USB</string>
+</resources>
